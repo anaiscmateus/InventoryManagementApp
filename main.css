@@ -1,0 +1,21 @@
+body {
+    padding: 100px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+header {
+  padding: 20px;
+  text-align: center;
+}
+
+.buttons {
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+}
+
+h4 {
+  text-align: center;
+}

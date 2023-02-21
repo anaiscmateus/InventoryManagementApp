@@ -1,0 +1,75 @@
+{% extends 'layout.html' %}
+
+{% block title %} New Product - {% endblock %}
+
+{% block content %}
+
+<div class="form">
+    <h4>Add New Product(s)</h4>
+    <form action="" method="post" class="row g-3">
+        <div class="outer-left col-md-3">
+        </div>
+
+        <div class="inner-left col-md-3">
+            <div class="form-input" id="prod-name-input">
+                <label for="nameValidation" class="form-label">Product Name:</label>
+                <input type="text" class="form-control" name="inputProductName" required>
+            </div>
+
+            <div class="form-input" id="prod-cat-input">
+                <label for="prod-cat" class="form-label">Product Category:</label>
+                <select class="form-select" aria-label="inputProdCat" name="inputProdCat" required>
+                    <option value="" disabled selected>Select Category</option>
+                    {% for cat in prod_cats %}
+                        <option value= "{{cat}}">{{cat}}</option>"
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-input" id="brand-input">
+                <label for="prod-brand" class="form-label">Brand:</label>
+                <input type="text" class="form-control" name="inputProdBrand" required>
+            </div>
+        </div>
+
+        <div class="inner-right col-md-3">
+            <div class="form-input" id="prod-price-input">
+                <label for="prod-price" class="form-label">Price:</label>
+                <input type="number" class="form-control" placeholder="00.00" step="0.01" min="0" max="1000" name="inputProdPrice">
+            </div>
+            
+            <div class="form-input" id="prod-qty-input">
+                <label for="prod-qty" class="form-label">Quantity in Stock:</label>
+                <input type="number" class="form-control" placeholder="0" min="0" max="100" name="inputProdQty" required>
+            </div>
+
+            <div class="form-input" id="prod-size-input">
+                <label for="prod-size" class="form-label">Size:</label>
+                <input type="text" class="form-control" name="inputProdSize" required>
+            </div>
+        </div>
+
+        <div class="outer-right col-md-3">
+        </div>
+
+        <br>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <br>
+
+        <div class="buttons">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="reset" class="btn btn-danger">Clear</button>
+            <a class="btn btn-warning" href="/home" role="button" id="return-home">Back to Homepage</a>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends 'layout.html' %}
+
+{% block title %} Update Product - {% endblock %}
+
+{% block content %}
+
+<div class="form">
+    <h4>Update Product(s)</h4>
+    <form action="" method="post" class="row g-3">
+        <div class="outer-left col-md-3">
+        </div>
+
+        <div class="inner-left col-md-3">
+            <div class="form-input" id="prod-id-input">
+                <label for="prod-id" class="form-label">Product ID:</label>
+                <select class="form-select" aria-label="inputProdID" name="inputProdID" required>
+                    <option value="" disabled selected>Select ID</option>
+                    {% for id in prod_ids[1:] %}
+                        <option value= "{{id}}">{{id}}</option>"
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-input" id="prod-cat-input">
+                <label for="prod-cat" class="form-label">Product Category:</label>
+                <select class="form-select" aria-label="inputProdCat" name="inputProdCat">
+                    <option value="" disabled selected>Select Category</option>
+                    {% for cat in prod_cats %}
+                        <option value= "{{cat}}">{{cat}}</option>"
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-input" id="brand-input">
+                <label for="prod-brand" class="form-label">Brand:</label>
+                <input type="text" class="form-control" name="inputProdBrand">
+            </div>
+        </div>
+
+        <div class="inner-right col-md-3">
+            <div class="form-input" id="prod-price-input">
+                <label for="prod-price" class="form-label">Price:</label>
+                <input type="number" class="form-control" placeholder="00.00" step="0.01" min="0" max="1000" name="inputProdPrice">
+            </div>
+            
+            <div class="form-input" id="prod-qty-input">
+                <label for="prod-qty" class="form-label">Quantity in Stock:</label>
+                <input type="number" class="form-control" placeholder="0" min="0" max="100" name="inputProdQty">
+            </div>
+        </div>
+
+        <div class="outer-right col-md-3">
+        </div>
+        <br>
+        <div class="buttons">
+            <button type="submit" class="btn btn-primary">Update</button>
+            <button type="reset" class="btn btn-danger">Clear</button>
+            <a class="btn btn-warning" href="/home" role="button" id="return-home">Back to Homepage</a>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

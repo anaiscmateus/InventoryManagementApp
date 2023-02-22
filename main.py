@@ -2,6 +2,7 @@ from flask import Flask, request, url_for, redirect, render_template, flash
 import gspread
 from random import randrange
 
+
 gc = gspread.service_account()
 sh = gc.open("Clothing Store Inventory")
 wk = sh.worksheet("prod_inventory")
